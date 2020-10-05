@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+*{
+  box-sizing: border-box;
+}
+html, body{
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+
+/*=========main_top====================*/
+
+#main_top{
+  width:100%;
+  position: fixed;
+  background-color: white;
+}
+.top_wrap{
+  width: 950px;
+  margin: auto;
+}
+.logo_top{
+  margin: 50px 0;
+  height: 30px;
+}
+.logo_top input{
+  height: 30px;
+  width: 400px;
+  padding-left: 5px;
+  border: 1px solid black;
+}
+.logo_img{
+  font-size: 30px;
+  font-weight: bold;
+  width: 80px;
+  float: left;
+  font-family: 'Poiret One', cursive;
+}
+.SearchBox{
+  width: 430px;
+  margin-left: 20%;
+  float: left;
+}
+.SearchBox i{
+  margin-right: 5px;
+}
+.icon_group{
+  width: 250px;
+  text-align: right;
+  float: left;
+  color: #424242;
+}
+.icon_group i{
+  font-size: 30px;
+  padding: 0 10px;
+}
+.category{
+  border-top: solid 1px darkgray;
+  border-bottom: solid 2px darkgray;
+  height: 50px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+}
+.category span{
+  margin: 0 70px;
+  line-height: 46px;
+}
+/*=========login====================*/
+#msg, .check{
+	text-align: center;
+	color: red;
+	font-size: 13px;
+	font-weight: bold;
+}
+.Login_Top {
+	width : 430px;
+	height : 360px;
+	margin : 100px auto 170px auto;
+	border : 3px solid darkgray;
+}
+.login {
+	text-align: center;
+	height: 65px;
+}
+.login h1 {
+	border-bottom : 1px solid darkgray;
+	margin : auto;
+	height: inherit;
+    line-height: 65px;
+}
+.id, .nm {
+	height: 30px;
+	margin: 20px 0 20px 0;
+}
+.pw{
+	height: 30px;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+.button{
+	height: 30px;
+}
+.login input {
+	border-radius : 5px;
+	width : 296px;
+	height : 30px;
+}
+.pw input {
+	border-radius : 5px;
+	width : 296px;
+	height : 30px;
+}
+.button input{
+ 	background-color: #424242;
+ 	color: white;
+ 	height: 30px;
+ 	width: 296px; 
+}
+.search{
+	font-size: 12px;
+	margin: 11px 0;
+}
+.search a{
+	color: red;
+}
+.search span{
+	margin: 0 5px;
+    padding: 0 5px;
+}
+
+/*=========side====================*/
+
+.side{
+  top: 250px;
+  right: 1px;
+  position: fixed;
+  background-color: #dadada;
+  opacity: 0.9;
+}
+.border{
+  border: 1px solid #dadada;
+  margin-top: 0px;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  line-height: 45px;
+}
+#main_bottom{
+  padding-top: 180px;
+}
+
+
+
+
+/*=========footer====================*/
+#footer{
+	text-align: center;
+    height: 100px;
+    background: #E6E6E6;
+    text-align: 50px;
+    font-size: 13px;
+    padding: 40px;
+}
