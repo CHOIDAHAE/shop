@@ -74,7 +74,7 @@
       </div>
       <div class="button">
         <button type="button" onclick="location.href='reviewRegMod'">후기작성</button>
-        <button type="button" onclick="location.href='ques'">문의사항</button>
+        <button type="button" onclick="location.href='review'">후기사항</button>
       </div>
 
     </div>

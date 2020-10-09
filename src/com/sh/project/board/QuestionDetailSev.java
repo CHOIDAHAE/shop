@@ -26,6 +26,7 @@ public class QuestionDetailSev extends HttpServlet {
 		QBoardVO param = new QBoardVO();
 		param.setI_board(int_Iboard);
 		
+		BoardDAO.updateQBoardHits(param);
 		request.setAttribute("detail", BoardDAO.getQBoard(int_Iboard));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/questiondetail.jsp");

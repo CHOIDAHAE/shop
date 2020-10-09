@@ -69,6 +69,93 @@ public class BoardDAO {
 		
 		
 	}
+	
+	/*============================update=================================*/
+	
+	
+	public static int updateRBoardHits(RBoardVO param) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		String sql = "UPDATE r_board SET hits = hits +1 WHERE i_board = ?";
+		
+		try {
+			con = DbBridge.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, param.getI_board());
+			
+			result=ps.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbBridge.close(con,ps);
+		}
+		return result;
+		
+	}
+	
+	public static int updateQBoardHits(QBoardVO param) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		String sql = "UPDATE q_board SET hits = hits +1 WHERE i_board = ?";
+		
+		try {
+			con = DbBridge.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, param.getI_board());
+			
+			result=ps.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbBridge.close(con,ps);
+		}
+		return result;
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/*==============================read=================================*/
 	public static List<RBoardVO> getRBoardList(){
 		List<RBoardVO> list = new ArrayList();

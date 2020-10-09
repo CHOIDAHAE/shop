@@ -63,13 +63,14 @@
    	 	<div class="detail"><span>제목</span> ${detail.title }</div>
 		<div class="detail"><span>작성일시</span> ${detail.w_dt }</div>
 		<div class="detail"><span>수정일시</span> ${detail.m_dt }</div>
+		<div class="detail"><span>조회수</span> ${detail.hits }</div>
 		<div class="detail"><span>내용</span></div>
 		<div class="detail_content">${fn:replace(detail.content, replaceChar, "<br/>") }</div>
       
       </div>
       <div class="button">
         <button type="button" name="#" onclick="location.href='reviewRegMod'">후기작성</button>
-        <button type="button" name="#" onclick="location.href='ques'">문의사항</button>
+        <button type="button" name="#" onclick="location.href='review'">돌아가기</button>
       </div>
 
     </div>

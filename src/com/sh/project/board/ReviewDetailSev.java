@@ -25,6 +25,7 @@ public class ReviewDetailSev extends HttpServlet {
 		RBoardVO param = new RBoardVO();
 		param.setI_board(int_Iboard);
 		
+		BoardDAO.updateRBoardHits(param);
 		request.setAttribute("detail", BoardDAO.getRBoard(int_Iboard));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/reviewdetail.jsp");
