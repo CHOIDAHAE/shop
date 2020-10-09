@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -156,56 +157,25 @@
         NEW PRODUCT
       </div>
       <div class="new_product_img">
-        <div class="img_border">
-          <img src="img/shirts.jpg" alt="shirts">
-          <div class="product_info">
-            <div class="product_title">
-              라보 - made knit ops
-            </div>
-            <div class="product_price">
-              34,200 won
-            </div>
-            <div class="product_detail">
-              롱 원피스를 좋아하는 만큼
-              원사와 컬러염색, 내부 디테일까지
-              하나 신경써서 만든 제작원피스
-            </div>
-          </div>
-        </div>
-        <div class="img_border">
-          <img src="img/shirts.jpg" alt="shirts">
-        </div>
-        <div class="img_border">
-          <img src="img/dress.jpg" alt="dress">
-        </div>
-        <div class="img_border">
-          <img src="img/dress.jpg" alt="dress">
-        </div>
-        <div class="img_border">
-          <img src="img/white.jpg" alt="white">
-          <div class="product_info">
-            <div class="product_title">
-              라보 - made knit ops
-            </div>
-            <div class="product_price">
-              34,200 won
-            </div>
-            <div class="product_detail">
-              롱 원피스를 좋아하는 만큼
-              원사와 컬러염색, 내부 디테일까지
-              하나 신경써서 만든 제작원피스
-            </div>
-          </div>
-        </div>
-        <div class="img_border">
-          <img src="img/white.jpg" alt="white">
-        </div>
-        <div class="img_border">
-          <img src="img/white.jpg" alt="white">
-        </div>
-        <div class="img_border">
-          <img src="img/white.jpg" alt="white">
-        </div>
+	      <c:forEach var="li" items="${list }">
+	      
+	        <div class="img_border">
+	          <img src="img/shirts.jpg" alt="shirts">
+	          <div class="click" onclick="moveToDetail(${li.seq }, ${li.category })">
+	          <div class="product_info">
+	            <div class="product_title">
+	              ${li.p_nm }
+	            </div>
+	            <div class="product_price">
+	              ${li.price } won
+	            </div>
+	            <div class="product_detail">
+	              ${li.info }
+	            </div>
+	          </div>
+	       	  </div>
+	        </div>
+	      </c:forEach>
       </div>
     </div>
   </div>
@@ -233,8 +203,8 @@
     </div>
   </footer>
   <script>
-		function moveToDetail(u_nm) {
-			location.href = '/mypage?u_nm=' + u_nm
+		function moveToDetail(seq, category) {
+			location.href = '/productdetail?seq=' + seq + '&category=' + category
 		}
   </script>
 </body>

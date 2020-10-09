@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<% pageContext.setAttribute("replaceChar","\n"); %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -62,7 +64,7 @@
 		<div class="detail"><span>작성일시</span> ${detail.w_dt }</div>
 		<div class="detail"><span>수정일시</span> ${detail.m_dt }</div>
 		<div class="detail"><span>내용</span></div>
-		<div class="detail_content">${detail.content }</div>
+		<div class="detail_content">${fn:replace(detail.content, replaceChar, "<br/>") }</div>
       
       </div>
       <div class="button">

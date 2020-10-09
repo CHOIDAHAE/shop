@@ -93,7 +93,49 @@ public class ProductDAO {
 		return list;
 	}
 	
-	
+	public static List<ProductVO> getNewProductList(){
+		List<ProductVO> list = new ArrayList();
+		
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM product WHERE idx < 13";
+		
+		try {
+			con = DbBridge.getCon();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				int idx = rs.getInt("idx");
+				int seq = rs.getInt("seq");
+				String p_nm = rs.getString("p_nm");
+				int price = rs.getInt("price");
+				String info = rs.getString("info");
+				int category = rs.getInt("category");
+				String p_img = rs.getString("p_img");
+				
+				ProductVO vo = new ProductVO();
+				vo.setIdx(idx);
+				vo.setSeq(seq);
+				vo.setP_nm(p_nm);
+				vo.setPrice(price);
+				vo.setInfo(info);
+				vo.setCategory(category);
+				vo.setP_img(p_img);
+				
+				list.add(vo);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbBridge.close(con, ps, rs);
+		}
+		return list;
+		
+		
+	}
 	
 	
 	

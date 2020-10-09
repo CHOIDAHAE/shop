@@ -64,6 +64,7 @@
 	          <span>글번호</span><span>${vo.i_board }</span>
 	          <span>작성자</span><span>${vo.u_id }</span>
 	          <span>작성일</span><span>${vo.w_dt }</span>
+	          <span>조회수</span><span>${vo.hits }</span>
 	        </div>
 	        <div class="review_detail">
 	          <p>${vo.content }</p>

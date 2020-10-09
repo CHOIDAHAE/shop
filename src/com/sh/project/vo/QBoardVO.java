@@ -9,7 +9,16 @@ public class QBoardVO {
 	private String w_dt;
 	private String m_dt;
 	private String u_id;
+	private int hits;
 	
+	
+	
+	public int getHits() {
+		return hits;
+	}
+	public void setHits(int hits) {
+		this.hits = hits;
+	}
 	public String getU_id() {
 		return u_id;
 	}

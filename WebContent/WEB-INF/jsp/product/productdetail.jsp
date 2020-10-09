@@ -67,8 +67,8 @@
 	     		<div class="line"><span>수량</span><span><input type="number" value="1"></span></div>
 	     		<div class="line"><span>총 상품금액</span><span>SUM 결과 연결</span></div>
 	     		<div class="button_group">
-        			<button class="buy" type="button" onclick="location.href='reviewRegMod'">구매하기</button>
-       				<button class="cart" type="button" onclick="location.href='ques'">장바구니</button>
+        			<button class="buy" type="button" onclick="location.href=''">구매하기</button>
+       				<button class="cart" type="button" onclick="location.href='cart'">장바구니</button>
      		 	</div>
 	     	</div>
 		</div>

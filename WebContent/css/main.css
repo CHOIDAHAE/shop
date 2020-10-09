@@ -143,7 +143,9 @@ a{
   display: inline-table;
   height:auto;
 }
-
+.click{
+	cursor: pointer;
+}
 /*=========side====================*/
 
 .side{
