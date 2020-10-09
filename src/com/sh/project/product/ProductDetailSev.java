@@ -33,7 +33,7 @@ public class ProductDetailSev extends HttpServlet {
 		request.setAttribute("detail", ProductDAO.getProductDetail(int_Seq, int_Category));
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/productdetail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/product/productdetail.jsp");
 		rd.forward(request, response);
 	}
 

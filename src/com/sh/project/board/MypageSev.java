@@ -48,7 +48,7 @@ public class MypageSev extends HttpServlet {
 		
 		
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/mypage.jsp");
 		rd.forward(request, response);
 	}
 

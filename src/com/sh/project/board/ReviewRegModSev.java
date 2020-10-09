@@ -27,7 +27,7 @@ public class ReviewRegModSev extends HttpServlet {
 			return;
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/reviewRegMod.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/reviewRegMod.jsp");
 		rd.forward(request, response);
 	}
 

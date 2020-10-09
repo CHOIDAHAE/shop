@@ -22,7 +22,7 @@ public class OuterSev extends HttpServlet {
 		
 		request.setAttribute("list", ProductDAO.getProductList(category));
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/outer.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/product/outer.jsp");
 		rd.forward(request, response);
 	}
 

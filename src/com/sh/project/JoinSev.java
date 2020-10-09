@@ -24,7 +24,7 @@ public class JoinSev extends HttpServlet {
 			String msg = "아이디 중복입니다.";
 			request.setAttribute("emsg", msg);
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/join.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/user/join.jsp");
 		rd.forward(request, response);
 	}
 

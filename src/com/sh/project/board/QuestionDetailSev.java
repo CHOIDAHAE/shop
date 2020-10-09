@@ -28,7 +28,7 @@ public class QuestionDetailSev extends HttpServlet {
 		
 		request.setAttribute("detail", BoardDAO.getQBoard(int_Iboard));
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/questiondetail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/questiondetail.jsp");
 		rd.forward(request, response);
 		
 	}

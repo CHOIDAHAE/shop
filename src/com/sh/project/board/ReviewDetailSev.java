@@ -27,7 +27,7 @@ public class ReviewDetailSev extends HttpServlet {
 		
 		request.setAttribute("detail", BoardDAO.getRBoard(int_Iboard));
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/reviewdetail.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/reviewdetail.jsp");
 		rd.forward(request, response);
 	}
 

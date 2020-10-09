@@ -38,7 +38,7 @@ public class LoginSev extends HttpServlet {
 			request.setAttribute("msg", errorMsg);
 		}
 
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/user/login.jsp");
 		rd.forward(request, response);
 
 

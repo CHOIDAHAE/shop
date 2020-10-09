@@ -49,7 +49,7 @@ public class FindidSev extends HttpServlet {
 		}
 		else {
 			request.setAttribute("list_id", u_id);
-			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/findID.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/user/findID.jsp");
 			rd.forward(request, response);
 		}
 	}

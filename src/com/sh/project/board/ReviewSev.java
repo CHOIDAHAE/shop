@@ -29,7 +29,7 @@ public class ReviewSev extends HttpServlet {
 		
 		request.setAttribute("list", BoardDAO.getRBoardList());
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/review.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/review.jsp");
 		rd.forward(request, response);
 	}
 

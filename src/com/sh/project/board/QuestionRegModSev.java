@@ -29,7 +29,7 @@ public class QuestionRegModSev extends HttpServlet {
 			return;
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/questionsRegMod.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/questionsRegMod.jsp");
 		rd.forward(request, response);
 	}
 

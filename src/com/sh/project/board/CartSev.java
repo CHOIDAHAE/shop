@@ -27,7 +27,7 @@ public class CartSev extends HttpServlet {
 				return;
 		}
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/cart.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/cart.jsp");
 		rd.forward(request, response);
 	}
 

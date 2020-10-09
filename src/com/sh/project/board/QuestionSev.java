@@ -31,7 +31,7 @@ public class QuestionSev extends HttpServlet {
 		
 		request.setAttribute("list", BoardDAO.getQBoardList());
 		
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/questions.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/questions.jsp");
 		rd.forward(request, response);
 	}
 
