@@ -1,5 +1,7 @@
+  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>   
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -65,24 +67,16 @@
 		    		<th>삭제</th>
 		    	</tr>
 		    </thead>
-		    <tbody>	  		
-		    	<tr>
-		  			<td class="not_check">1</td>
-		  			<td>신상 아우터</td>
-		  			<td>15000원</td>
-		  			<td>수량<input type="number" name="nb" min="1" max="50"></td>
-					<td>합계</td>
-		    		<td><input type="button" value="삭제"></td>
-		    	</tr>
-		    	<tr>
-		  			<td class="not_check">2</td>
-		  			<td>신상 아우터</td>
-		  			<td>15000원</td>
-		  			<td>수량<input type="number" name="nb" min="1" max="50"></td>
-					<td>합계</td>
-		    		<td><input type="button" value="삭제"></td>
-		    	</tr>
-		    </tbody>
+		    <c:forEach var="vo" items="${cart_list}">
+			<tr class="pointer trSelected">
+				<td class="fontCenter">${vo.c_board }</td>
+				<td>${vo.name }</td>
+				<td class="fontCenter">${vo.price }</td>
+				<td class="fontCenter">${vo.num }</td>
+				<td class="fontCenter">${vo.total }</td>
+			</tr>
+			</c:forEach>
+		    
   	    </table>
   	  </div>
   	 </div>

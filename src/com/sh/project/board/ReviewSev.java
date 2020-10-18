@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sh.project.db.BoardDAO;
+import com.sh.project.vo.RBoardVO;
 import com.sh.project.vo.UserVO;
 
 
@@ -27,7 +28,11 @@ public class ReviewSev extends HttpServlet {
 				return;
 		}
 		
-		request.setAttribute("list", BoardDAO.getRBoardList());
+		String search = request.getParameter("search");
+		RBoardVO param = new RBoardVO();
+		param.setSearch(search);
+		
+		request.setAttribute("list", BoardDAO.getRBoardList(param));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/review.jsp");
 		rd.forward(request, response);

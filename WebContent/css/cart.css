@@ -83,12 +83,14 @@ a{
 
 /*=========main_bottom====================*/
 
+/*=====cart=======*/
 #main_bottom{
   padding-top: 210px;
 }
 .cart {
   width: 100%;
   margin: 0;
+  height: auto;
 }
 .cart_title{
   text-align: center;
@@ -100,7 +102,7 @@ a{
 .cart_info{
   font-size: 13px;
   width: 950px;
-  height : 500px;
+  height : auto;
   margin: 20px auto;
 }
 table {
@@ -112,12 +114,12 @@ table {
 	margin-right : auto;
 	margin-left : auto;
 }
-th {	
-	background-color : blue;
+.cart_info th {	
+	background-color : #BDBDBD;
 	color : white;
 	font-size : 18px;
 }
-td {
+.cart_info td {
 	color : black;
 	font-size : 15px;
 	margin : 0 auto;
@@ -134,6 +136,64 @@ td {
   height: 30px;
   width: 100px;
 }
+
+/*=====order=======*/
+
+.order_info{
+  width: 950px;
+  height : 500px;
+  margin: 50px auto;
+}
+.order_title{
+	font-size: 15px;
+	margin: 0 30px;
+	border: 1px solid gray;
+	height:40px;
+	line-height: 40px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding-left: 20px;
+	width: 100px;
+	border-bottom:0;
+}
+.order_table th{
+	width: 150px;
+	font-size: 14px;
+	height: 30px;
+}
+.button{
+	width: 950px;
+	text-align: right;
+	margin: 10px 0;
+}
+.button input{
+	box-shadow: 1px 1px 1px 1px gray;
+	height: 40px;
+	width: 200px;
+	margin-right: 10px;
+	border: 0;
+}
+option, .p_nm input{
+	width: 85px;
+}
+.email input{
+	width: 300px;
+}
+.adress input{
+	width: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

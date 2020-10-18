@@ -65,7 +65,7 @@
 					        	<div class="product_title">
 					         		${li.p_nm }
 					            </div>
-					            <div class="product_price">
+					            <div class="product_price" name="price">
 					            	${li.price } won
 					            </div>
 					            <div class="product_detail">

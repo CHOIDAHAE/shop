@@ -71,10 +71,19 @@
 	       </div>
       </c:forEach>
       
+       <div id="searchContainer">
+			<form action="/review" method="get">
+				<div>
+					검색 <input type="search" name="search">
+					<input type="submit" value="검색">
+				</div>				
+			</form>
+		</div>
+		
       </div>
       <div class="button">
         <button type="button" onclick="location.href='reviewRegMod'">후기작성</button>
-        <button type="button" onclick="location.href='review'">후기사항</button>
+        <button type="button" onclick="location.href='ques'">문의사항</button>
       </div>
 
     </div>

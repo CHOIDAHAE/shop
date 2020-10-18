@@ -63,13 +63,16 @@
 	     		<div class="product_content">
 	     			${detail.info }
 	     		</div>
+	     	<form action="/cart" name="frm" method="get">
 	     		<div class="line"><span>가격</span><span></span>${detail.price } won</div>
-	     		<div class="line"><span>수량</span><span><input type="number" value="1"></span></div>
-	     		<div class="line"><span>총 상품금액</span><span>SUM 결과 연결</span></div>
+	     		<div class="line"><span>수량</span><span><input type="number" name="quntity" value="1"></span></div>
+	     		<div class="line"><span>Total
+	     		</span><input type="text" id="sum" value= "0"><input type="button" value="확인" onclick="add1(${detail.price}); "></div>
 	     		<div class="button_group">
         			<button class="buy" type="button" onclick="location.href=''">구매하기</button>
-       				<button class="cart" type="button" onclick="location.href='cart'">장바구니</button>
+       				<button class="cart" type="button" onclick="check(${detail.price}); ">장바구니</button>
      		 	</div>
+     		 </form>	
 	     	</div>
 		</div>
   	</div>
@@ -96,5 +99,25 @@
       <span>Copyright &copy; isShop. All Right Reserved.</span>
     </div>
   </footer>
+  <script>
+		function moveToOrder(seq, category, price) {
+  			location.href = '/order?seq=' + seq + '&category=' + category
+  		}
+  		// 총 합게값을 확인하는 함수
+  		function add1(price) { 
+	  		var q = document.frm.quntity.value; 
+	  		var total = (price * q); 
+	  		document.getElementById("sum").value = total;
+		}
+  		// 확인된 합계값을 체크해서 서블릿으로 전달하는 함수 (더 효율적으로 작성될것같은데 생각해봐야할듯!....!)
+  		function check(price) {
+  			var q = document.frm.quntity.value; 
+	  		var total = (price * q);
+  			document.getElementById("sum").value = total;
+	  		var url = '/cart?total=' + total + '&price=' + price + '&num=' + q;
+  			window.location.href = url;
+  		}
+  
+  </script>
 </body>
 </html>

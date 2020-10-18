@@ -135,7 +135,11 @@ a{
   height: 30px;
   width: 100px;
 }
-
+#searchContainer {
+	margin-top: 40px;
+	display: flex;
+	justify-content: center;
+}
 /*=========reviewRegMod main_bottom===========*/
 
 .reviewRegMod_info{

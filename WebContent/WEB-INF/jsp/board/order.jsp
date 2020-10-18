@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>  
+    pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/mypage.css">
+  <link rel="stylesheet" href="css/cart.css">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&family=Poiret+One&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/2ec8d568d7.js" crossorigin="anonymous"></script>
-  <title>isSHOP-마이페이지</title>
+  <title>isSHOP-주문목록</title>
 </head>
 <body>
   <div id="main_top">
@@ -24,7 +24,7 @@
     	} else {
       %>
         <div class="welcome"><a href="login">로그인</a>이 필요합니다.</div>
-      <%
+      <%		
     	}
       %>
       <div class="logo_top">
@@ -36,7 +36,7 @@
         </div>
         <div class="icon_group">
           <a href="login"><i class="fas fa-sign-in-alt"></i></a>
-          <a href="mypage"><i class="far fa-user"></i></a>
+          <a href="/mypage?idx=${loginUser.idx}"><i class="far fa-user"></i></a>
           <a href="cart"><i class="fas fa-cart-plus"></i></a>
         </div>
       </div>
@@ -52,74 +52,93 @@
       </div>
     </div>
 	<div id="main_bottom">
-     	<div class="mypage">
-     	  <p class="mypage_title">마이페이지</p>
-     		<div class="mypage_info">
-		  	  <table class="mypage_1">
-		  	    <caption>나의 정보</caption>
-		  		  <tr>
-		  			<th>이름</th>
-		  			<th>아이디</th>
-		  		  </tr>
-				  <tr class="pointer trSelected">
-					<td class="fontCenter">${mypage.u_nm }</td>
-					<td>${mypage.u_id }</td>
-				  </tr>
-		      </table>
-		      <table class="mypage_2">
-		       <caption>나의 게시물 정보</caption>
+     <div class="cart">
+	    <p class="cart_title">주문내역</p>
+	    <div class="cart_info">
+		  <table>
+		  	<thead>
 		  		<tr>
-		  			<th>제목</th>
-		  			<th>내용</th>
-		  			<th>작성일자</th>
-		  		</tr>
-		  		<c:forEach var="vo" items="${mypageQ}">
-				  <tr class="pointer trSelected">
-					<td class="fontCenter">${vo.title }</td>
-					<td>${vo.content }</td>
-					<td>${vo.w_dt }</td>
-				  </tr>
-				</c:forEach>
-				<c:forEach var="vo" items="${mypageR}">
-				  <tr class="pointer trSelected">
-					<td class="fontCenter">${vo.title }</td>
-					<td>${vo.content }</td>
-					<td>${vo.w_dt }</td>
-				  </tr>
-				</c:forEach>
-		      </table>
-		 </div>
-		 
-		<div class="button">
-        <button type="button" onclick="location.href='review'">후기사항</button>
-        <button type="button" onclick="location.href='ques'">문의사항</button>
-      </div>
-  	</div>
+		  			<th>주문번호</th>
+		  			<th>상품명</th>
+		  			<th>가격</th>
+		  			<th>수량</th>
+					<th>합계</th>
+		    	</tr>
+		    </thead>
+		    <tbody>	  		
+		    	<tr>
+		  			<td>${detail.seq }</td>
+		  			<td>${detail.p_nm }</td>
+		  			<td>${detail.price }won</td>
+		  			<td>${order.number }</td>
+					<td>${order.total }</td>
+		    	</tr>
+		    </tbody>
+  	    </table>
+  	  </div>
+  	  <div class="order_info">
+  	  	<h2 class="order_title">주문정보</h2>
+  	  	<form action="#" method="post">
+		  <table class="order_table">
+		  		<tr>
+		  			<th>주문하시는 분</th>
+		  			<td name="u_nm">${ loginUser.u_nm }</td>
+		  			
+		    	</tr>	
+		    	<tr>
+		    		<th>주소</th>
+		  			<td name="address" class="address">
+						<input type="text">
+					</td>
+		    	</tr>
+		    	<tr>
+		    		<th>휴대전화</th>
+		  			<td class="p_nm">
+		  			<select name="p_num_first">
+		  				<option value='' selected>==선택==</option>
+		  				<option value='010'>010</option>
+		  				<option value='02'>02</option>
+		  				<option value='054'>054</option>
+		  				<option value='053'>053</option>
+		  			</select>
+		  			-
+		  			<input name="p_num_second" type="text">
+		  			-
+		  			<input name="p_num_third" type="text">
+		  			</td>
+		    	</tr>
+		    	<tr>
+		   		 	<th>이메일</th>
+		  			<td name="email" class="email"><input type="email" placeholder="email을 입력해주세요(ex.abc@naver.com)"></td>
+		    	</tr>
+  	    </table>
+  	    <div class="button"><input type="submit" value="구매하기"></div>
+  	  </div>
+  	  </form>
+  	 </div>
   	</div>
   <div class="side">
     <%
       	if(session.getAttribute("loginUser") != null){
     %>
-      <a href="mypage"><div class="border"><i class="far fa-user"></i></div></a>
+      <a href="/mypage?idx=${loginUser.idx}"><div class="border"><i class="far fa-user"></i></div></a>
       <a href="cart"><div class="border"><i class="fas fa-cart-plus"></i></div></a>
       <a href="main"><div class="border"><i class="fas fa-search"></i></div></a>
     <%
     	} else {
     %>
       <a href="login"><div class="border"><i class="fas fa-sign-in-alt"></i></div></a>
-      <a href="mypage"><div class="border"><i class="far fa-user"></i></div></a>
+      <a href="/mypage?idx=${loginUser.idx}"><div class="border"><i class="far fa-user"></i></div></a>
       <a href="cart"><div class="border"><i class="fas fa-cart-plus"></i></div></a>
       <a href="main"><div class="border"><i class="fas fa-search"></i></div></a>
     <%		
     	}
     %>
   </div>
-  
   <footer>
     <div id="footer">
       <span>Copyright &copy; isShop. All Right Reserved.</span>
     </div>
   </footer>
-  
 </body>
 </html>

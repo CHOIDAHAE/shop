@@ -157,14 +157,19 @@ public class BoardDAO {
 	
 	
 	/*==============================read=================================*/
-	public static List<RBoardVO> getRBoardList(){
+	public static List<RBoardVO> getRBoardList(RBoardVO param){
 		List<RBoardVO> list = new ArrayList();
 		
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT A.i_board, A.w_dt, A.title, A.content, A.hits, B.u_id FROM r_board A INNER JOIN user B ON A.idx = B.idx ORDER BY w_dt DESC";
+		String sql = "SELECT A.i_board, A.w_dt, A.title, A.content, A.hits, B.u_id FROM r_board A INNER JOIN user B ON A.idx = B.idx ";
+
+		if(param.getSearch() != null) {
+			sql += " WHERE title LIKE '%" + param.getSearch() + "%' ";
+		}		
+		sql += " ORDER BY w_dt DESC ";
 		
 		try {
 			con = DbBridge.getCon();
@@ -199,14 +204,19 @@ public class BoardDAO {
 		
 	}
 	
-	public static List<QBoardVO> getQBoardList(){
+	public static List<QBoardVO> getQBoardList(QBoardVO param){
 		List<QBoardVO> list = new ArrayList();
 		
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT A.i_board, A.w_dt, A.title, A.content, A.hits, B.u_id FROM q_board A INNER JOIN user B ON A.idx = B.idx ORDER BY w_dt DESC";
+		String sql = "SELECT A.i_board, A.w_dt, A.title, A.content, A.hits, B.u_id FROM q_board A INNER JOIN user B ON A.idx = B.idx";
+
+		if(param.getSearch() != null) {
+			sql += " WHERE title LIKE '%" + param.getSearch() + "%' ";
+		}		
+		sql += " ORDER BY w_dt DESC ";
 		
 		try {
 			con = DbBridge.getCon();

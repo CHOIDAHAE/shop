@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.sh.project.db.BoardDAO;
+import com.sh.project.vo.QBoardVO;
 import com.sh.project.vo.UserVO;
 
 
@@ -29,7 +30,12 @@ public class QuestionSev extends HttpServlet {
 				return;
 		}
 		
-		request.setAttribute("list", BoardDAO.getQBoardList());
+
+		String search = request.getParameter("search");
+		QBoardVO param = new QBoardVO();
+		param.setSearch(search);
+		
+		request.setAttribute("list", BoardDAO.getQBoardList(param));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/questions.jsp");
 		rd.forward(request, response);

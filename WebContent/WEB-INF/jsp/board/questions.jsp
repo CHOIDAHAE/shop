@@ -71,7 +71,14 @@
 	        </div>
 	       </div>
       </c:forEach>
-      
+       <div id="searchContainer">
+			<form action="/ques" method="get">
+				<div>
+					검색 <input type="search" name="search">
+					<input type="submit" value="검색">
+				</div>				
+			</form>
+		</div>
       </div>
       <div class="button">
         <button type="button" onclick="location.href='quesrem'">문의작성</button>

@@ -1,3 +1,4 @@
+<%@page import="com.sh.project.Utils"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -158,7 +159,6 @@
       </div>
       <div class="new_product_img">
 	      <c:forEach var="li" items="${list }">
-	      
 	        <div class="img_border">
 	          <img src="img/shirts.jpg" alt="shirts">
 	          <div class="click" onclick="moveToDetail(${li.seq }, ${li.category })">
@@ -183,29 +183,32 @@
   	<%
       	if(session.getAttribute("loginUser") != null){
     %>
-      <a href="/mypage?idx=${loginUser.idx}"><div class="border"><i class="far fa-user"></i></div></a>
+      <a href="mypage"><div class="border"><i class="far fa-user"></i></div></a>
       <a href="cart"><div class="border"><i class="fas fa-cart-plus"></i></div></a>
       <a href="main"><div class="border"><i class="fas fa-search"></i></div></a>
     <%
     	} else {
     %>
       <a href="login"><div class="border"><i class="fas fa-sign-in-alt"></i></div></a>
-      <a href="/mypage?idx=${loginUser.idx}"><div class="border"><i class="far fa-user"></i></div></a>
+      <a href="mypage"><div class="border"><i class="far fa-user"></i></div></a>
       <a href="cart"><div class="border"><i class="fas fa-cart-plus"></i></div></a>
       <a href="main"><div class="border"><i class="fas fa-search"></i></div></a>
-    <%		
+    <%
     	}
     %>
   </div>
+  
   <footer>
     <div id="footer">
       <span>Copyright &copy; isShop. All Right Reserved.</span>
     </div>
   </footer>
+  
   <script>
 		function moveToDetail(seq, category) {
 			location.href = '/productdetail?seq=' + seq + '&category=' + category
 		}
   </script>
+  
 </body>
 </html>

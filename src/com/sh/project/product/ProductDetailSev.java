@@ -8,10 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sh.project.Utils;
 import com.sh.project.db.ProductDAO;
+import com.sh.project.vo.OrderVO;
 import com.sh.project.vo.ProductVO;
+import com.sh.project.vo.UserVO;
 
 @WebServlet("/productdetail")
 public class ProductDetailSev extends HttpServlet {
@@ -23,15 +26,11 @@ public class ProductDetailSev extends HttpServlet {
 		String category = request.getParameter("category");
 		int int_Category = Utils.parseStringToInt(category, 0);
 		
-		System.out.println(int_Seq);
-		System.out.println(int_Category);
-		
 		ProductVO param = new ProductVO();
 		param.setSeq(int_Seq);
 		param.setCategory(int_Category);
 		
 		request.setAttribute("detail", ProductDAO.getProductDetail(int_Seq, int_Category));
-		
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/product/productdetail.jsp");
 		rd.forward(request, response);
@@ -39,7 +38,8 @@ public class ProductDetailSev extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		
 	}
 
 }
