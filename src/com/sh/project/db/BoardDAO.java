@@ -125,37 +125,6 @@ public class BoardDAO {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/*==============================read=================================*/
 	public static List<RBoardVO> getRBoardList(RBoardVO param){
 		List<RBoardVO> list = new ArrayList();
@@ -167,8 +136,8 @@ public class BoardDAO {
 		String sql = "SELECT A.i_board, A.w_dt, A.title, A.content, A.hits, B.u_id FROM r_board A INNER JOIN user B ON A.idx = B.idx ";
 
 		if(param.getSearch() != null) {
-			sql += " WHERE title LIKE '%" + param.getSearch() + "%' ";
-		}		
+			sql += " WHERE content LIKE '%" + param.getSearch() + "%' ";
+		}
 		sql += " ORDER BY w_dt DESC ";
 		
 		try {
@@ -214,7 +183,7 @@ public class BoardDAO {
 		String sql = "SELECT A.i_board, A.w_dt, A.title, A.content, A.hits, B.u_id FROM q_board A INNER JOIN user B ON A.idx = B.idx";
 
 		if(param.getSearch() != null) {
-			sql += " WHERE title LIKE '%" + param.getSearch() + "%' ";
+			sql += " WHERE content LIKE '%" + param.getSearch() + "%' ";
 		}		
 		sql += " ORDER BY w_dt DESC ";
 		
