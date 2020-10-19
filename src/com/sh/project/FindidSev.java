@@ -21,7 +21,7 @@ public class FindidSev extends HttpServlet {
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/findID.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/user/findID.jsp");
 		rd.forward(request, response);
 	}
 

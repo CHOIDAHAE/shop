@@ -43,7 +43,7 @@ public class FindpwSev extends HttpServlet {
 			script.println("</script>");
 		}
 		
-		List<UserVO> u_pw = UserDAO.findPW(u_nm, u_id);
+		String u_pw = UserDAO.findPW(u_nm, u_id);
 		
 		System.out.println("u_pw = " + u_pw);
 		

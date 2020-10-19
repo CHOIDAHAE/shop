@@ -141,14 +141,14 @@ public class UserDAO {
 	}
 	
 	// 비밀번호 찾기
-		public static List<UserVO> findPW(String nm, String id) {
-			List<UserVO> list = new ArrayList();
+		public static String findPW(String nm, String id) {
+			String pw = "";
 			
 			Connection con = null;
 			PreparedStatement ps = null;
 			ResultSet rs = null;
 			
-			String sql = "SELECT u_pw FROM user WHERE u_nm = ? AND u_id = ? ";
+			String sql = "SELECT concat(substr(u_pw,1,3),\"..\") u_pw FROM user WHERE u_nm = ? AND u_id = ? ";
 			
 			try {
 					con = DbBridge.getCon();
@@ -160,18 +160,14 @@ public class UserDAO {
 					
 					if (rs.next()) {
 						
-						String u_pw = rs.getString("u_pw");
-						
-						UserVO vo = new UserVO();
-						vo.setU_pw(u_pw);
-						
-						list.add(vo);
+						pw = rs.getString("u_pw");						
+
 					}
 			} catch (Exception e) {
 				e.printStackTrace();
 			} finally {
 				DbBridge.close(con, ps, rs);
 			}
-			return list;
+			return pw;
 		}
 }
