@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <% pageContext.setAttribute("replaceChar","\n"); %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -67,10 +69,18 @@
 		<div class="detail"><span>내용</span></div>
 		<div class="detail_content">${fn:replace(detail.content, replaceChar, "<br/>") }</div>
       
+      <c:if test="${loginUser.idx == detail.idx }">
+	      <div class="moddel">
+	      	<button>수정</button>
+	      	<button>삭제</button>
+	      </div>
+      </c:if>
+      
       </div>
+      
       <div class="button">
-        <button type="button" name="#" onclick="location.href='quesrem'">문의작성</button>
-        <button type="button" name="#" onclick="location.href='ques'">돌아가기</button>
+        <button type="button" onclick="location.href='quesrem'">문의작성</button>
+        <button type="button" onclick="location.href='ques'">돌아가기</button>
       </div>
 
     </div>

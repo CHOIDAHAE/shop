@@ -12,12 +12,6 @@ a{
   color: black;
 }
 
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 /*=========main_top====================*/
 
 #main_top{
@@ -144,6 +138,10 @@ input[type="number"]::-webkit-inner-spin-button {
 	margin-top: 40px;
 	display: flex;
 	justify-content: center;
+}
+.moddel{
+	margin-bottom: 10px;
+	width: 100px;
 }
 /*=========reviewRegMod main_bottom===========*/
 

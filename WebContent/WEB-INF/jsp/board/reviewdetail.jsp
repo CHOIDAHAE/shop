@@ -67,6 +67,13 @@
 		<div class="detail"><span>내용</span></div>
 		<div class="detail_content">${fn:replace(detail.content, replaceChar, "<br/>") }</div>
       
+      <c:if test="${loginUser.idx == detail.idx }">
+	      <div class="moddel">
+	      	<button>수정</button>
+	      	<button>삭제</button>
+	      </div>
+      </c:if>
+      
       </div>
       <div class="button">
         <button type="button" name="#" onclick="location.href='reviewRegMod'">후기작성</button>

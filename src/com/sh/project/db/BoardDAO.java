@@ -267,7 +267,7 @@ public class BoardDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "SELECT A.title, A.w_dt, A.m_dt, A.content, A.hits, B.u_id FROM q_board A INNER JOIN user B ON A.idx = B.idx WHERE A.i_board = ? ORDER BY w_dt DESC";
+		String sql = "SELECT A.title, A.w_dt, A.m_dt, A.content, A.hits, A.idx, B.u_id FROM q_board A INNER JOIN user B ON A.idx = B.idx WHERE A.i_board = ? ORDER BY w_dt DESC";
 		
 		try {
 			con = DbBridge.getCon();
@@ -282,6 +282,7 @@ public class BoardDAO {
 				String m_dt = rs.getString("m_dt");
 				String u_id = rs.getString("u_id");
 				int hits = rs.getInt("hits");
+				int idx = rs.getInt("idx");
 				
 				vo = new QBoardVO();
 				vo.setI_board(i_board);
@@ -291,6 +292,7 @@ public class BoardDAO {
 				vo.setM_dt(m_dt);
 				vo.setU_id(u_id);
 				vo.setHits(hits);
+				vo.setIdx(idx);
 			}
 			
 			
