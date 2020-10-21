@@ -45,8 +45,6 @@ public class FindpwSev extends HttpServlet {
 		
 		String u_pw = UserDAO.findPW(u_nm, u_id);
 		
-		System.out.println("u_pw = " + u_pw);
-		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter script = response.getWriter();
 		

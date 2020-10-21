@@ -1,6 +1,7 @@
 package com.sh.project.board;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,7 +44,16 @@ public class QuestionRegModSev extends HttpServlet {
 		String b_pw = request.getParameter("b_pw");
 		int intb_pw = Utils.parseStringToInt(b_pw, 0);
 		int idx = loginUser.getIdx();		
-
+		
+		if (title.length() > 20) {
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter script = response.getWriter();
+			script.println("<script>");
+			script.println("alert('제목이 20자를 초과했습니다.')");
+			script.println("history.back(-1)");
+			script.println("</script>");
+		} else {
+		
 		QBoardVO param = new QBoardVO();
 		param.setTitle(title);
 		param.setContent(content);
@@ -53,6 +63,8 @@ public class QuestionRegModSev extends HttpServlet {
 		BoardDAO.insertQBoard(param);
 
 		response.sendRedirect("/ques");
+		
+		}
 	}
 
 }
