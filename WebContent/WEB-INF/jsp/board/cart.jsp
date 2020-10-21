@@ -1,4 +1,3 @@
-  
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -74,6 +73,7 @@
 				<td class="fontCenter">${vo.price }</td>
 				<td class="fontCenter">${vo.num }</td>
 				<td class="fontCenter">${vo.total }</td>
+				<td><button onclick="cartlist_del(${vo.c_board})">삭제</button></td>
 			</tr>
 			</c:forEach>
 		    
@@ -104,5 +104,16 @@
       <span>Copyright &copy; isShop. All Right Reserved.</span>
     </div>
   </footer>
+  
+  <script>
+    	function cartlist_del(c_board) {
+    			var result = confirm(c_board + '번 상품을 지우겠습니까?')
+    			if (result) {
+    					location.href = '/cartDel?c_board=' + c_board
+    			}
+    	}
+    	
+    </script>
+    
 </body>
 </html>

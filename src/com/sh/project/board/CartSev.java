@@ -56,7 +56,7 @@ public class CartSev extends HttpServlet {
 			return;
 		}
 		
-		request.setAttribute("cart_list", ProductDAO.getCartList());
+		request.setAttribute("cart_list", ProductDAO.getCartList(idx));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/cart.jsp");
 		rd.forward(request, response);

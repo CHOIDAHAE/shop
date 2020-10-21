@@ -71,7 +71,7 @@
       
       <c:if test="${loginUser.idx == detail.idx }">
 	      <div class="moddel">
-	      	<button>수정</button>
+	      	<button onclick="clkMod()">수정</button>
 	      	<button onclick="clkDelBtn(${detail.i_board})">삭제</button>
 	      </div>
       </c:if>
@@ -100,6 +100,7 @@
         <a href="cart"><div class="border"><i class="fas fa-cart-plus"></i></div></a>
         <a href="main"><div class="border"><i class="fas fa-search"></i></div></a>
       <%		
+      
     	}
       %>
   </div>
@@ -111,6 +112,9 @@
   </footer>
   
   <script>
+  	function clkMod(){
+  		location.href='/quesrem?i_board=' + ${detail.i_board}
+  	}
   	function clkDelBtn(i_board){
   		var result = confirm(i_board + '번 글을 삭제하시겠습니까?')
   		if(result){

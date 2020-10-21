@@ -167,14 +167,14 @@ public class ProductDAO {
 			return result;
 	}
 	
-	public static List<CartVO> getCartList() {
+	public static List<CartVO> getCartList(int idx) {
 		List<CartVO> list = new ArrayList();
 
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		String sql = " SELECT * FROM cart";
+		String sql = " SELECT * FROM cart  WHERE idx = ?";
 
 		try {
 				con = DbBridge.getCon();
@@ -278,7 +278,29 @@ public class ProductDAO {
 	}
 	
 	
-	
+	//------------------------------------------------- Delete (삭제)
+
+	public static int delCartList(CartVO param) {
+		int result = 0;
+
+		Connection con = null;
+		PreparedStatement ps = null;
+
+		String sql = " DELETE FROM cart WHERE c_board = ? ";
+
+		try {
+				con = DbBridge.getCon();
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, param.getC_board());
+
+				result = ps.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbBridge.close(con, ps);
+		}
+		return result;
+	}
 	
 	
 	
