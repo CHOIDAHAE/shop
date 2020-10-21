@@ -29,9 +29,23 @@ public class ReviewSev extends HttpServlet {
 		}
 		
 		String search = request.getParameter("search");
+		
+		int page = 1;
+		String strPage = request.getParameter("page");
+		if(strPage != null) {
+			page = Integer.parseInt(strPage);
+		}
+		int cnt = 10; //content view count
+		int sIdx = (page - 1) * cnt;
+		
 		RBoardVO param = new RBoardVO();
 		param.setSearch(search);
+		param.setsIdx(sIdx);
+		param.setRowCnt(cnt);
+
+		request.setAttribute("page", page);
 		
+		request.setAttribute("totalPageCnt", BoardDAO.getTotalRPageCnt(cnt));
 		request.setAttribute("list", BoardDAO.getRBoardList(param));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/review.jsp");
