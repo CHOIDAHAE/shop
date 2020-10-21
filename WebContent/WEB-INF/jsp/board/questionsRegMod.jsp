@@ -65,7 +65,7 @@
 	        <div class="reviewRegMod_detail">
 	         <div class="writer"><span>내용</span></div><textarea name="content"></textarea>
 	        </div>
-	        <div><input type="text" placeholder="비밀번호4글자" name="b_pw"></div>
+	        <div><input type="number" placeholder="비밀번호 4자리" name="b_pw" required></div>
 	        <div class="write_button"><input type="submit" value="글쓰기" class="write"></div>
         </form>
       </div>
