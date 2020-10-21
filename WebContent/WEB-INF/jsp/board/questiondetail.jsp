@@ -72,7 +72,7 @@
       <c:if test="${loginUser.idx == detail.idx }">
 	      <div class="moddel">
 	      	<button>수정</button>
-	      	<button>삭제</button>
+	      	<button onclick="clkDelBtn(${detail.i_board})">삭제</button>
 	      </div>
       </c:if>
       
@@ -109,6 +109,14 @@
       <span>Copyright &copy; isShop. All Right Reserved.</span>
     </div>
   </footer>
-
+  
+  <script>
+  	function clkDelBtn(i_board){
+  		var result = confirm(i_board + '번 글을 삭제하시겠습니까?')
+  		if(result){
+  			location.href = '/boardDel?i_board=' + i_board
+  		}
+  	}
+  </script>
 </body>
 </html>
