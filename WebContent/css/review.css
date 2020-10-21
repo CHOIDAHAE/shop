@@ -135,7 +135,7 @@ a{
   width: 100px;
 }
 #searchContainer {
-	margin-top: 40px;
+	margin-top: 10px;
 	display: flex;
 	justify-content: center;
 }
@@ -204,22 +204,21 @@ a{
 	height:500px;
 	padding: 10px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#pageContainer {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+#pageContainer span {
+	color: #3498db;
+}
+#pageContainer a:not(:last-child) {
+	margin-right: 30px;
+}
+.selected {
+	font-weight: bold;
+	color: red !important;
+}
 
 /*=========side====================*/
 

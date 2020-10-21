@@ -30,11 +30,27 @@ public class QuestionSev extends HttpServlet {
 				return;
 		}
 		
-
+		
 		String search = request.getParameter("search");
+		
+		
+		
+		int page = 1;
+		String strPage = request.getParameter("page");
+		if(strPage != null) {
+			page = Integer.parseInt(strPage);
+		}
+		int cnt = 10; //content view count
+		int sIdx = (page - 1) * cnt;
+		
 		QBoardVO param = new QBoardVO();
 		param.setSearch(search);
+		param.setsIdx(sIdx);
+		param.setRowCnt(cnt);
 		
+		request.setAttribute("page", page);
+		
+		request.setAttribute("totalPageCnt", BoardDAO.getTotalPageCnt(cnt));
 		request.setAttribute("list", BoardDAO.getQBoardList(param));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/questions.jsp");

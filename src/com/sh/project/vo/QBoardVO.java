@@ -11,9 +11,21 @@ public class QBoardVO {
 	private String u_id;
 	private int hits;
 	private String search;
+	private int sIdx; //limit 앞값
+	private int rowCnt; //limit 뒷값
 	
-	
-	
+	public int getsIdx() {
+		return sIdx;
+	}
+	public void setsIdx(int sIdx) {
+		this.sIdx = sIdx;
+	}
+	public int getRowCnt() {
+		return rowCnt;
+	}
+	public void setRowCnt(int rowCnt) {
+		this.rowCnt = rowCnt;
+	}
 	public String getSearch() {
 		return search;
 	}

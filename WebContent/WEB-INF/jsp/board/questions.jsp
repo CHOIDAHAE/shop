@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -71,14 +72,23 @@
 	        </div>
 	       </div>
       </c:forEach>
-       <div id="searchContainer">
-			<form action="/ques" method="get">
-				<div>
-					검색 <input type="search" name="search">
-					<input type="submit" value="검색">
-				</div>				
-			</form>
-		</div>
+      <div id="pageContainer">
+      	<c:forEach var="i" begin="1" end="${totalPageCnt }">				
+				<a href="/ques?page=${i}">
+				<span <c:if test="${i == page}"> </c:if>>				
+					${i}
+				</span>
+				</a>
+		</c:forEach>	
+      </div>
+      <div id="searchContainer">
+		<form action="/ques" method="get">
+			<div>
+				검색 <input type="search" name="search">
+				<input type="submit" value="검색">
+			</div>				
+		</form>
+	  </div>
       </div>
       <div class="button">
         <button type="button" onclick="location.href='quesrem'">문의작성</button>

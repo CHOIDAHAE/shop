@@ -185,11 +185,13 @@ public class BoardDAO {
 		if(param.getSearch() != null) {
 			sql += " WHERE content LIKE '%" + param.getSearch() + "%' ";
 		}		
-		sql += " ORDER BY w_dt DESC ";
+		sql += " ORDER BY w_dt DESC LIMIT ?, ?";
 		
 		try {
 			con = DbBridge.getCon();
 			ps = con.prepareStatement(sql);
+			ps.setInt(1, param.getsIdx());
+			ps.setInt(2, param.getRowCnt());
 			rs = ps.executeQuery();
 			
 			while(rs.next()) {
@@ -304,6 +306,32 @@ public class BoardDAO {
 			DbBridge.close(con, ps, rs);
 		}
 		return vo;
+	}
+	
+	public static int getTotalPageCnt(int cnt) {
+		int totalPageCnt = 0;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT CEIL(COUNT(i_board) / 10) AS cnt FROM q_board";
+		
+		try {
+			con = DbBridge.getCon();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				totalPageCnt = rs.getInt("cnt");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbBridge.close(con, ps, rs);
+		}
+		
+		return totalPageCnt;
+		
 	}
 	
 	public static UserVO mypageinfo(int idx) {
