@@ -226,7 +226,7 @@ public class BoardDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "SELECT A.title, A.w_dt, A.m_dt, A.content, A.hits, B.u_id FROM r_board A INNER JOIN user B ON A.idx = B.idx WHERE A.i_board = ? ORDER BY w_dt DESC";
+		String sql = "SELECT A.title, A.w_dt, A.m_dt, A.content, A.hits, A.idx, B.u_id FROM r_board A INNER JOIN user B ON A.idx = B.idx WHERE A.i_board = ? ORDER BY w_dt DESC";
 		
 		try {
 			con = DbBridge.getCon();
@@ -241,6 +241,7 @@ public class BoardDAO {
 				String m_dt = rs.getString("m_dt");
 				String u_id = rs.getString("u_id");
 				int hits = rs.getInt("hits");
+				int idx = rs.getInt("idx");
 				
 				vo = new RBoardVO();
 				vo.setI_board(i_board);
@@ -250,6 +251,7 @@ public class BoardDAO {
 				vo.setM_dt(m_dt);
 				vo.setU_id(u_id);
 				vo.setHits(hits);
+				vo.setIdx(idx);
 			}
 			
 			
@@ -417,6 +419,30 @@ public class BoardDAO {
 		PreparedStatement ps = null;
 		
 		String sql = "DELETE FROM q_board WHERE i_board = ? AND idx = ?";
+		
+		try {
+			con = DbBridge.getCon();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, param.getI_board());
+			ps.setInt(2, param.getIdx());
+			
+			result = ps.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbBridge.close(con, ps);
+		}
+		
+		return result;
+	}
+	
+	public static int delRBoard(RBoardVO param) {
+		int result = 0;
+		Connection con = null;
+		PreparedStatement ps = null;
+		
+		String sql = "DELETE FROM r_board WHERE i_board = ? AND idx = ?";
 		
 		try {
 			con = DbBridge.getCon();
