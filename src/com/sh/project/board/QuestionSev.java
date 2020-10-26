@@ -22,13 +22,6 @@ public class QuestionSev extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession hs = request.getSession();
-		UserVO loginUser = (UserVO)hs.getAttribute("loginUser");
-		
-		if(loginUser == null) {
-				response.sendRedirect("/login");
-				return;
-		}
 		
 		
 		String search = request.getParameter("search");
