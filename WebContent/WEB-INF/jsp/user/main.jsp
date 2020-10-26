@@ -33,7 +33,8 @@
           <a href="main">isSHOP</a>
         </div>
         <div class="SearchBox">
-          <i class="fas fa-search"></i><input type="text" class="" name="search" placeholder="검색">
+          <input type="text" name="search" id="varsea" placeholder="검색">
+          <button type="button" onclick="search();" value="sea"><img src="/img/search.png" width="20px" height="20px"></button>
         </div>
         <div class="icon_group">
           <a href="login"><i class="fas fa-sign-in-alt"></i></a>
@@ -207,6 +208,10 @@
   <script>
 		function moveToDetail(seq, category) {
 			location.href = '/productdetail?seq=' + seq + '&category=' + category
+		}
+		function search() {
+			var value = $('input[name=search]').val();
+			location.href = '/ques?search=' + value
 		}
   </script>
   

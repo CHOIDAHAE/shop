@@ -403,11 +403,14 @@ public class BoardDAO {
 		ResultSet rs = null;
 		
 		String sql = " SELECT title, content, w_dt FROM q_board WHERE idx = ? ";
+		sql += " ORDER BY w_dt DESC LIMIT ?, ? ";
 		
 		try {
 			con = DbBridge.getCon();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, param.getIdx());
+			ps.setInt(2, param.getsIdx());
+			ps.setInt(3, param.getRowCnt());
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
@@ -444,6 +447,8 @@ public class BoardDAO {
 			con = DbBridge.getCon();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, param.getIdx());
+			ps.setInt(2, param.getsIdx());
+			ps.setInt(3, param.getRowCnt());
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
@@ -466,6 +471,33 @@ public class BoardDAO {
 		}
 		return list;
 	}
+	
+	public static int getQTotalPage(QBoardVO param) {
+		int totalPageCnt = 0;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		String sql = "SELECT CEIL(COUNT(i_board) / ?) AS cnt FROM q_board ";
+
+		try {
+				con = DbBridge.getCon();
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, param.getRowCnt());
+				rs = ps.executeQuery();
+
+				if(rs.next()) {
+						totalPageCnt = rs.getInt("cnt");
+				}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbBridge.close(con, ps, rs);
+		}
+
+		return totalPageCnt;
+}
+	
 	
 	/*==============================delete=================================*/
 	

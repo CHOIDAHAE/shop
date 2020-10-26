@@ -43,73 +43,75 @@ a{
   border: 1px solid black;
 }
 .logo_img{
-  font-size: 30px;
-  font-weight: bold;
-  width: 80px;
-  float: left;
-  font-family: 'Poiret One', cursive;
+	font-size: 30px;
+	font-weight: bold;
+	width: 80px;
+	float: left;
+	font-family: 'Poiret One', cursive;
 }
 .SearchBox{
-  width: 430px;
-  margin-left: 20%;
-  float: left;
+	width: 430px;
+	margin-left: 20%;
+	float: left;
 }
 .SearchBox i{
-  margin-right: 5px;
+	margin-right: 5px;
 }
 .icon_group{
-  width: 250px;
-  text-align: right;
-  float: left;
-  color: #424242;
+	width: 250px;
+	text-align: right;
+	float: left;
+	color: #424242;
 }
 .icon_group i{
-  font-size: 30px;
-  padding: 0 10px;
+ 	font-size: 30px;
+	padding: 0 10px;
 }
 .category{
-  border-top: solid 1px darkgray;
-  border-bottom: solid 2px darkgray;
-  height: 50px;
-  font-size: 15px;
-  font-weight: bold;
-  text-align: center;
-  display: block;
+	border-top: solid 1px darkgray;
+	border-bottom: solid 2px darkgray;
+	height: 50px;
+ 	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	display: block;
 }
 .category span{
-  margin: 0 70px;
-  line-height: 46px;
+	margin: 0 70px;
+	line-height: 46px;
 }
 
 /*=========main_bottom====================*/
 
 #main_bottom{
-  padding-top: 210px;
+	padding-top: 210px;
 }
 .mypage {
-  width: 100%;
-  margin: 0;
+	width: 100%;
+	margin: 0;
 }
 .mypage_title{
-  text-align: center;
-  margin: 0;
-  height: 50px;
-  line-height: 50px;
-  background-color: #E6E6E6;
+	text-align: center;
+	margin: 0;
+	height: 50px;
+	line-height: 50px;
+	background-color: #E6E6E6;
 }
 .mypage_info{
-  width: 950px;
-  height : 500px;
-  margin: 20px auto;
-}
-.mypage_1 {
-	width : 475px;
-	float : left;
+	width: 950px;
+	height : 500px;
+	margin: 20px auto;
 }
 .mypage_2 {
 	width : 465px;
 	float : left;
-	line-height : 25px;
+	line-height : 20px;
+	margin-left : 10px;
+}
+.mypage_3 {
+	width : 460px;
+	float : right;
+	line-height : 20px;
 	margin-left : 10px;
 }
 table {	
@@ -133,17 +135,27 @@ td {
 	text-align : center;
 }
 .button{
-  text-align: center;
-  margin-bottom: 20px;
+	text-align: center;
+	margin-bottom: 20px;
 }
 .button button, .write{
-  background-color: #424242;
-  color: white;
-  height: 30px;
-  width: 100px;
+	background-color: #424242;
+	color: white;
+	height: 30px;
+	width: 100px;
 }
 
-
+#pageContainer {
+	margin-top: 30px;
+	float : right;
+	margin-right : 170px;
+	display : block;
+	justify-content: center;
+}
+#pageContainer span {
+	color: #3498db;
+	margin-left : 40px;
+}
 
 
 

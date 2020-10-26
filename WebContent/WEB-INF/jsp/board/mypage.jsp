@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>  
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -36,7 +37,7 @@
         </div>
         <div class="icon_group">
           <a href="login"><i class="fas fa-sign-in-alt"></i></a>
-          <a href="mypage"><i class="far fa-user"></i></a>
+          <a href="mypage?idx=${loginUser.idx}"><i class="far fa-user"></i></a>
           <a href="cart"><i class="fas fa-cart-plus"></i></a>
         </div>
       </div>
@@ -55,7 +56,7 @@
      	<div class="mypage">
      	  <p class="mypage_title">마이페이지</p>
      		<div class="mypage_info">
-		  	  <table class="mypage_1">
+		  	  <table class="mypage_2">
 		  	    <caption>나의 정보</caption>
 		  		  <tr>
 		  			<th>이름</th>
@@ -67,7 +68,7 @@
 				  </tr>
 		      </table>
 		      <table class="mypage_2">
-		       <caption>나의 게시물 정보</caption>
+		       <caption>나의 문의사항</caption>
 		  		<tr>
 		  			<th>제목</th>
 		  			<th>내용</th>
@@ -75,21 +76,24 @@
 		  		</tr>
 		  		<c:forEach var="vo" items="${mypageQ}">
 				  <tr class="pointer trSelected">
-					<td class="fontCenter">${vo.title }</td>
-					<td>${vo.content }</td>
-					<td>${vo.w_dt }</td>
-				  </tr>
-				</c:forEach>
-				<c:forEach var="vo" items="${mypageR}">
-				  <tr class="pointer trSelected">
-					<td class="fontCenter">${vo.title }</td>
-					<td>${vo.content }</td>
+					<td class="fontCenter">${fn:substring(vo.title, 0, 6)}</td>
+					<td>${fn:substring(vo.content, 0, 6)}</td>
 					<td>${vo.w_dt }</td>
 				  </tr>
 				</c:forEach>
 		      </table>
-		 </div>
-		 
+		      
+		  <div id="pageContainer">
+					<c:forEach var="i" begin="1" end="${totalPageCnt }">				
+						<a href="/mypage?page=${i}&idx=${loginUser.idx}">
+						<span <c:if test="${i == page}">class="selected"</c:if>>				
+						${i}
+						</span>
+						</a>
+						</c:forEach>			
+			  		</div>	
+		  </div>
+		  
 		<div class="button">
         <button type="button" onclick="location.href='review'">후기사항</button>
         <button type="button" onclick="location.href='ques'">문의사항</button>
@@ -100,7 +104,7 @@
     <%
       	if(session.getAttribute("loginUser") != null){
     %>
-      <a href="mypage"><div class="border"><i class="far fa-user"></i></div></a>
+      <a href="mypage?idx=${loginUser.idx}"><div class="border"><i class="far fa-user"></i></div></a>
       <a href="cart"><div class="border"><i class="fas fa-cart-plus"></i></div></a>
       <a href="main"><div class="border"><i class="fas fa-search"></i></div></a>
     <%

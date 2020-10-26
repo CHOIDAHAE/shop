@@ -80,7 +80,11 @@ a{
   margin: 0 70px;
   line-height: 46px;
 }
-
+.SearchBox button {
+	background-image : url('/img/search.png'); 
+    background-position:top right; 
+    background-repeat:no-repeat;	
+}
 /*=========main_bottom====================*/
 
 #main_bottom{
