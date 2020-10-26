@@ -56,49 +56,13 @@
   <div id="main_bottom">
     <div class="admin_part">
       <p class="admin_title">회원 관리</p>
-      <p class="list_title"><i class="fas fa-users"></i>회원 리스트</p>
       <div class="admin_info">
       	<table>
-      		<tr>
-      			<th style="width:100px;">회원번호(idx)</th>
-      			<th style="width:150px;">이름</th>
-      			<th style="width:150px;">아이디</th>
-      			<th style="width:200px;">게시글목록?</th>
-      			<th style="width:100px;">삭제버튼?(강퇴기능?)</th>
-      		</tr>
-	      	<tr>
-	      		<td>이름 DB</td>
-	      		<td>아이디 DB</td>
-	      		<td>DB</td>
-	      		<td>DB</td>
-	      		<td><button>삭제</button></td>
-	      	</tr>
+      		<th></th>
       	</table>
       </div>
-      
-      <p class="list_title"><i class="fas fa-list-ul"></i>회원 게시글</p>
-      <p class=""></p>
-      <div class="admin_info">
-      	<table>
-      		<tr>
-      			<th style="width:100px;">회원번호(idx)</th>
-      			<th style="width:150px;">이름</th>
-      			<th style="width:150px;">아이디</th>
-      			<th style="width:200px;">게시글목록?</th>
-      			<th style="width:100px;">삭제버튼?(강퇴기능?)</th>
-      		</tr>
-	      	<tr>
-	      		<td>이름 DB</td>
-	      		<td>아이디 DB</td>
-	      		<td>DB</td>
-	      		<td>DB</td>
-	      		<td><button>삭제</button></td>
-	      	</tr>
-      	</table>
-      </div>
-      
       <div class="button">
-        <button type="button" onclick="location.href='updateproduct'">상품등록</button>
+        <button type="button" onclick="location.href='admin'">회원관리</button>
       </div>
     </div>
   </div>
