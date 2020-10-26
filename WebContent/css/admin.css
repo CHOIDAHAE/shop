@@ -81,7 +81,7 @@ a{
 }
 
 /*=========main_bottom====================*/
-
+/*=========admin==========*/
 #main_bottom{
   padding-top: 210px;
 }
@@ -112,6 +112,7 @@ a{
   margin: 10px auto;
   border-top: 2px solid darkgray;
   border-bottom: 2px solid darkgray;
+  padding:30px;
 }
 .admin_info table{
 	margin: auto;
@@ -124,10 +125,27 @@ a{
 }
 
 
-
-
-
-
+/*=========updateproduct==========*/
+.wrapper{
+	margin-bottom: 10px;
+}
+.update{
+	margin: 5px auto 0 auto;
+}
+.update i{
+	padding-right: 10px;
+}
+.wrapper input{
+	height: 30px;
+}
+.wrapper labe{
+	width: 200px;
+	height: 30px;
+}
+.product_info{
+	width: 900px;
+	height: 100px;
+}
 
 
 

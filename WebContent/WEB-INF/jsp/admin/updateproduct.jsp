@@ -55,11 +55,40 @@
 
   <div id="main_bottom">
     <div class="admin_part">
-      <p class="admin_title">회원 관리</p>
+      <p class="admin_title">상품 등록</p>
       <div class="admin_info">
-      	<table>
-      		<th></th>
-      	</table>
+      	<form action="updateproduct" method="post">
+      		<div class="wrapper">
+	      		<p class="update"><i class="fas fa-check"></i>상품명</p>
+		      		<input type="text" name="p_nm">
+	      	</div>
+	      	<div class="wrapper">
+		      	<p class="product_category update"><i class="fas fa-check"></i>카테고리</p>
+			      	<input type="radio" name="category" id="outer" value="1">
+			      		<label for="outer">outer</label>
+			      	<input type="radio" name="category" id="top" value="2">
+			      		<label for="top">top</label>
+			      	<input type="radio" name="category" id="bottom" value="3">
+			      		<label for="bottom">bottom</label>
+			      	<input type="radio" name="category" id="shoes" value="4">
+			      		<label for="shoes">shoes</label>
+		    </div>
+	      	<div class="wrapper">
+			    <p class="update"><i class="fas fa-check"></i>가격</p>
+			     	<input type="text" name="price"> 원
+		    </div>
+	      	<div class="wrapper"> 	
+			    <p class="update"><i class="fas fa-check"></i>상세정보</p>
+			     	<textarea name="info" class="product_info"></textarea>
+		    </div>
+	      	<div class="wrapper">
+			    <p class="update"><i class="fas fa-check"></i>이미지</p>
+			     	<input type="file" name="p_img" id="p_img" accept="image/*">
+      		</div>
+      		<div>
+      			<input type="submit" value="등록하기">
+      		</div>
+      	</form>
       </div>
       <div class="button">
         <button type="button" onclick="location.href='admin'">회원관리</button>
