@@ -103,7 +103,7 @@ public class ProductDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT * FROM product WHERE idx < 13";
+		String sql = "SELECT * FROM product order by idx desc limit 12";
 		
 		try {
 			con = DbBridge.getCon();
