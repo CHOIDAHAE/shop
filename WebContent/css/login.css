@@ -75,7 +75,7 @@ a{
 /*=========login====================*/
 .Login_Top {
 	width : 430px;
-	height : 250px;
+	height : 260px;
 	margin : 170px auto;
 	border : 3px solid darkgray;
 	margin-top : 100px;
@@ -125,7 +125,14 @@ a{
    height: 30px;
    width: 145px;
 }
-
+.admin_login a{
+	color: orange !important;
+	font-size: 13px;
+	font-weight: bold;
+}
+.admin_login p{
+	margin: 0;
+}
 /*=========side====================*/
 
 .side{

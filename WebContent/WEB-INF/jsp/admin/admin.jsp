@@ -16,9 +16,9 @@
   <div id="main_top">
     <div class="top_wrap">
 	  <%
-    	if(session.getAttribute("loginUser") != null){
+    	if(session.getAttribute("adminloginUser") != null){
       %>
-        <div class="welcome">${ loginUser.u_nm }님 환영합니다.
+        <div class="welcome">${ adminloginUser.u_nm }님 환영합니다.
         <a href="logout"><span class="logout">로그아웃</span></a></div>
       <%
       	} else {

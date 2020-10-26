@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&family=Poiret+One&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/2ec8d568d7.js" crossorigin="anonymous"></script>
-  <title>로그인</title>
+  <title>admin로그인</title>
 </head>
 <body>
   <div id="main_top">
@@ -41,8 +41,8 @@
    <div id="main_bottom">
      <div class="Login_Top">
       <div class="login">
-	    <h1>회원 로그인</h1>
-	    <form class="login_form" id="frm" action="login" method="post" onsubmit="return submitChk()">
+	    <h1>admin 로그인</h1>
+	    <form class="login_form" id="frm" action="adminlogin" method="post" onsubmit="return submitChk()">
 		  <div class="id">
 		  	 <input type="text" name="u_id" placeholder="아이디를 입력하시오">
 		  </div>
@@ -51,14 +51,11 @@
 		  </div>
 		  <div class="button">
 	        <input type="submit" value="로그인">
-	        <input type="button" value="회원가입" onclick="location.href='/join'">
+	        <input type="button" value="회원 로그인" onclick="location.href='/login'">
 	  	  </div>
 	  	 </form>
 	  	<div style="color:red; font-weight: bold;">
 			${msg}
-		</div>
-		<div>
-			<p class="admin_login"><a href="adminlogin">관리자로그인</a></p>
 		</div>
   	  </div>
   	</div>
