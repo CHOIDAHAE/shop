@@ -34,10 +34,6 @@ public class UpdateProductSev extends HttpServlet {
 		int intprice = Utils.parseStringToInt(price, 0);
 		String info = request.getParameter("info");
 		
-		System.out.println("p_nm = " + p_nm);
-		System.out.println("category = " + intcategory);
-		System.out.println("price = " + intprice);
-		System.out.println("info = " + info);
 		
 		if (p_nm.length() == 0 || info.length() == 0) {
 			response.setContentType("text/html;charset=UTF-8");

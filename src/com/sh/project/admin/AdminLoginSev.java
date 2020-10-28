@@ -28,7 +28,7 @@ public class AdminLoginSev extends HttpServlet {
 				errorMsg = "알 수 없는 에러 발생";
 				break;
 			case "2":
-				errorMsg = "관리자 아이디가 아닙니다.";
+				errorMsg = "관리자가 아닙니다.";
 				break;
 			case "3":
 				errorMsg = "비밀번호를 확인해 주세요";
