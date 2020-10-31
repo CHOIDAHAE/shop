@@ -23,8 +23,11 @@ public class QuestionDetailSev extends HttpServlet {
 		String i_board = request.getParameter("i_board");
 		int int_Iboard = Utils.parseStringToInt(i_board, 0);
 		
+		System.out.println("i_board : " + int_Iboard);
 		QBoardVO param = new QBoardVO();
 		param.setI_board(int_Iboard);
+		
+		
 		
 		BoardDAO.updateQBoardHits(param);
 		request.setAttribute("detail", BoardDAO.getQBoard(int_Iboard));

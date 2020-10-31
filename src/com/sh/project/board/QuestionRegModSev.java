@@ -59,13 +59,6 @@ public class QuestionRegModSev extends HttpServlet {
 			script.println("alert('제목이 20자를 초과했습니다.')");
 			script.println("history.back(-1)");
 			script.println("</script>");
-		} else if (intb_pw > 10000 || intb_pw < 1000) {
-			response.setContentType("text/html;charset=UTF-8");
-			PrintWriter script = response.getWriter();
-			script.println("<script>");
-			script.println("alert('비밀번호는 4자리로 입력해주세요.')");
-			script.println("history.back(-1)");
-			script.println("</script>");
 		} else {
 		
 		QBoardVO param = new QBoardVO();

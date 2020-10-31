@@ -19,9 +19,9 @@ public class BoardDAO {
 		PreparedStatement ps = null;
 
 		String sql = " INSERT INTO q_board "
-					+ " (title, content, idx, b_pw) "
+					+ " (title, content, idx) "
 					+ " VALUES "
-					+ " (?, ?, ?, ?) ";
+					+ " (?, ?, ?) ";
 
 		try {
 				con = DbBridge.getCon();
@@ -29,7 +29,6 @@ public class BoardDAO {
 				ps.setString(1, param.getTitle());
 				ps.setString(2, param.getContent());
 				ps.setInt(3, param.getIdx());
-				ps.setInt(4, param.getB_pw());
 
 				result = ps.executeUpdate();
 
@@ -47,7 +46,7 @@ public class BoardDAO {
 		Connection con = null;
 		PreparedStatement ps = null;
 		
-		String sql = "INSERT INTO r_board(title, content, idx, b_pw) VALUES (?, ?, ?, ?)";
+		String sql = "INSERT INTO r_board(title, content, idx) VALUES (?, ?, ?)";
 		
 		try {
 			con = DbBridge.getCon();
@@ -55,7 +54,6 @@ public class BoardDAO {
 			ps.setString(1, param.getTitle());
 			ps.setString(2, param.getContent());
 			ps.setInt(3, param.getIdx());
-			ps.setInt(4, param.getB_pw());
 			
 			result = ps.executeUpdate();
 		
@@ -289,6 +287,7 @@ public class BoardDAO {
 				String u_id = rs.getString("u_id");
 				int hits = rs.getInt("hits");
 				int idx = rs.getInt("idx");
+				
 				
 				vo = new QBoardVO();
 				vo.setI_board(i_board);
