@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>  
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -25,7 +25,7 @@
     	} else {
       %>
         <div class="welcome"><a href="login">로그인</a>이 필요합니다.</div>
-      <%
+      <%		
     	}
       %>
       <div class="logo_top">
@@ -37,7 +37,7 @@
         </div>
         <div class="icon_group">
           <a href="login"><i class="fas fa-sign-in-alt"></i></a>
-          <a href="mypage?idx=${loginUser.idx}"><i class="far fa-user"></i></a>
+          <a href="/mypage?idx=${loginUser.idx}"><i class="far fa-user"></i></a>
           <a href="cart"><i class="fas fa-cart-plus"></i></a>
         </div>
       </div>
@@ -56,7 +56,7 @@
      	<div class="mypage">
      	  <p class="mypage_title">마이페이지</p>
      		<div class="mypage_info">
-		  	  <table class="mypage_2">
+     		<table class="mypage_2">
 		  	    <caption>나의 정보</caption>
 		  		  <tr>
 		  			<th>이름</th>
@@ -82,8 +82,7 @@
 				  </tr>
 				</c:forEach>
 		      </table>
-		      
-		  <div id="pageContainer">
+		      <div id="pageContainer">
 					<c:forEach var="i" begin="1" end="${totalPageCnt }">				
 						<a href="/mypage?page=${i}&idx=${loginUser.idx}">
 						<span <c:if test="${i == page}">class="selected"</c:if>>				
@@ -92,8 +91,7 @@
 						</a>
 						</c:forEach>			
 			  		</div>	
-		  </div>
-		  
+		 	  </div>
 		<div class="button">
         <button type="button" onclick="location.href='review'">후기사항</button>
         <button type="button" onclick="location.href='ques'">문의사항</button>
@@ -104,7 +102,7 @@
     <%
       	if(session.getAttribute("loginUser") != null){
     %>
-      <a href="mypage?idx=${loginUser.idx}"><div class="border"><i class="far fa-user"></i></div></a>
+      <a href="/mypage?idx=${loginUser.idx}"><div class="border"><i class="far fa-user"></i></div></a>
       <a href="cart"><div class="border"><i class="fas fa-cart-plus"></i></div></a>
       <a href="main"><div class="border"><i class="fas fa-search"></i></div></a>
     <%
@@ -118,12 +116,10 @@
     	}
     %>
   </div>
-  
   <footer>
     <div id="footer">
       <span>Copyright &copy; isShop. All Right Reserved.</span>
     </div>
   </footer>
-  
 </body>
 </html>

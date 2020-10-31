@@ -103,9 +103,7 @@
     <div id="footer">
       <span>Copyright &copy; isShop. All Right Reserved.</span>
     </div>
-  </footer>
-  
-  <script>
+    <script>
     	function cartlist_del(c_board) {
     			var result = confirm(c_board + '번 상품을 지우겠습니까?')
     			if (result) {
@@ -114,6 +112,6 @@
     	}
     	
     </script>
-    
+  </footer>
 </body>
 </html>

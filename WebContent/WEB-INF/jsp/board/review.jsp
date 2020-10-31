@@ -32,7 +32,7 @@
           <a href="main">isSHOP</a>
         </div>
         <div class="SearchBox">
-          <i class="fas fa-search"></i><input type="text" class=""name="search" placeholder="검색">
+          <i class="fas fa-search"></i><input type="text" class="" name="search" placeholder="검색">
         </div>
         <div class="icon_group">
           <a href="login"><i class="fas fa-sign-in-alt"></i></a>

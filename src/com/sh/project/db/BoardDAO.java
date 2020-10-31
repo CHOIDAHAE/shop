@@ -116,13 +116,7 @@ public class BoardDAO {
 		return result;
 		
 	}
-	
-	
-	
-	
-	
-	
-	
+		
 	/*==============================read=================================*/
 	public static List<RBoardVO> getRBoardList(RBoardVO param){
 		List<RBoardVO> list = new ArrayList();
@@ -132,10 +126,10 @@ public class BoardDAO {
 		ResultSet rs = null;
 		
 		String sql = "SELECT A.i_board, A.w_dt, A.title, A.content, A.hits, B.u_id FROM r_board A INNER JOIN user B ON A.idx = B.idx ";
-
+		
 		if(param.getSearch() != null) {
 			sql += " WHERE content LIKE '%" + param.getSearch() + "%' ";
-		}
+		}		
 		sql += " ORDER BY w_dt DESC LIMIT ?, ?";
 		
 		try {
@@ -181,7 +175,7 @@ public class BoardDAO {
 		ResultSet rs = null;
 		
 		String sql = "SELECT A.i_board, A.w_dt, A.title, A.content, A.hits, B.u_id FROM q_board A INNER JOIN user B ON A.idx = B.idx";
-
+		
 		if(param.getSearch() != null) {
 			sql += " WHERE content LIKE '%" + param.getSearch() + "%' ";
 		}		
@@ -288,7 +282,6 @@ public class BoardDAO {
 				int hits = rs.getInt("hits");
 				int idx = rs.getInt("idx");
 				
-				
 				vo = new QBoardVO();
 				vo.setI_board(i_board);
 				vo.setTitle(title);
@@ -307,58 +300,6 @@ public class BoardDAO {
 			DbBridge.close(con, ps, rs);
 		}
 		return vo;
-	}
-	
-	public static int getTotalPageCnt(int cnt) {
-		int totalPageCnt = 0;
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		
-		String sql = "SELECT CEIL(COUNT(i_board) / 10) AS cnt FROM q_board";
-		
-		try {
-			con = DbBridge.getCon();
-			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-			
-			if(rs.next()) {
-				totalPageCnt = rs.getInt("cnt");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DbBridge.close(con, ps, rs);
-		}
-		
-		return totalPageCnt;
-		
-	}
-	
-	public static int getTotalRPageCnt(int cnt) {
-		int totalPageCnt = 0;
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-
-		String sql = "SELECT CEIL(COUNT(i_board) / 10) AS cnt FROM r_board";
-
-		try {
-			con = DbBridge.getCon();
-			ps = con.prepareStatement(sql);
-			rs = ps.executeQuery();
-
-			if(rs.next()) {
-				totalPageCnt = rs.getInt("cnt");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DbBridge.close(con, ps, rs);
-		}
-
-		return totalPageCnt;
-
 	}
 	
 	public static UserVO mypageinfo(int idx) {
@@ -402,6 +343,7 @@ public class BoardDAO {
 		ResultSet rs = null;
 		
 		String sql = " SELECT title, content, w_dt FROM q_board WHERE idx = ? ";
+		
 		sql += " ORDER BY w_dt DESC LIMIT ?, ? ";
 		
 		try {
@@ -410,6 +352,7 @@ public class BoardDAO {
 			ps.setInt(1, param.getIdx());
 			ps.setInt(2, param.getsIdx());
 			ps.setInt(3, param.getRowCnt());
+			
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
@@ -433,61 +376,25 @@ public class BoardDAO {
 		return list;
 	}
 	
-	public static List<RBoardVO> mypageR(RBoardVO param) {
-		List<RBoardVO> list = new ArrayList();
-		
-		Connection con = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		
-		String sql = " SELECT title, content, w_dt FROM r_board WHERE idx = ? ";
-		
-		try {
-			con = DbBridge.getCon();
-			ps = con.prepareStatement(sql);
-			ps.setInt(1, param.getIdx());
-			ps.setInt(2, param.getsIdx());
-			ps.setInt(3, param.getRowCnt());
-			rs = ps.executeQuery();
-			
-			while (rs.next()) {
-				String title = rs.getString("title");
-				String content = rs.getString("content");
-				String w_dt = rs.getString("w_dt");
-				
-				RBoardVO vo = new RBoardVO();
-				vo.setTitle(title);
-				vo.setContent(content);
-				vo.setW_dt(w_dt);
-				
-				list.add(vo);
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DbBridge.close(con, ps, rs);
-		}
-		return list;
-	}
 	
-	public static int getQTotalPage(QBoardVO param) {
+	
+	/*==============================paging=================================*/
+	public static int getTotalPageCnt(int cnt) {
 		int totalPageCnt = 0;
 		Connection con = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT CEIL(COUNT(i_board) / ?) AS cnt FROM q_board ";
+		String sql = "SELECT CEIL(COUNT(i_board) / 10) AS cnt FROM q_board";
 
 		try {
-				con = DbBridge.getCon();
-				ps = con.prepareStatement(sql);
-				ps.setInt(1, param.getRowCnt());
-				rs = ps.executeQuery();
+			con = DbBridge.getCon();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
 
-				if(rs.next()) {
-						totalPageCnt = rs.getInt("cnt");
-				}
+			if(rs.next()) {
+				totalPageCnt = rs.getInt("cnt");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -495,70 +402,105 @@ public class BoardDAO {
 		}
 
 		return totalPageCnt;
-}
+
+	}
 	
-	
+	public static int getQTotalPage(QBoardVO param) {
+			int totalPageCnt = 0;
+			Connection con = null;
+			PreparedStatement ps = null;
+			ResultSet rs = null;
+			
+			String sql = "SELECT CEIL(COUNT(i_board) / 5) AS cnt FROM q_board WHERE idx = ?";
+			
+			try {
+					con = DbBridge.getCon();
+					ps = con.prepareStatement(sql);
+					ps.setInt(1, param.getIdx());
+					rs = ps.executeQuery();
+					
+					if(rs.next()) {
+							totalPageCnt = rs.getInt("cnt");
+					}
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				DbBridge.close(con, ps, rs);
+			}
+			
+			return totalPageCnt;
+	}
+	public static int getTotalRPageCnt(int cnt) {
+		int totalPageCnt = 0;
+		Connection con = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		String sql = "SELECT CEIL(COUNT(i_board) / 10) AS cnt FROM r_board";
+
+		try {
+			con = DbBridge.getCon();
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+
+			if(rs.next()) {
+				totalPageCnt = rs.getInt("cnt");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DbBridge.close(con, ps, rs);
+		}
+
+		return totalPageCnt;
+
+	}
 	/*==============================delete=================================*/
-	
+
 	public static int delQBoard(QBoardVO param) {
 		int result = 0;
 		Connection con = null;
 		PreparedStatement ps = null;
-		
+
 		String sql = "DELETE FROM q_board WHERE i_board = ? AND idx = ?";
-		
+
 		try {
 			con = DbBridge.getCon();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, param.getI_board());
 			ps.setInt(2, param.getIdx());
-			
+
 			result = ps.executeUpdate();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DbBridge.close(con, ps);
 		}
-		
+
 		return result;
 	}
-	
 	public static int delRBoard(RBoardVO param) {
 		int result = 0;
 		Connection con = null;
 		PreparedStatement ps = null;
-		
+
 		String sql = "DELETE FROM r_board WHERE i_board = ? AND idx = ?";
-		
+
 		try {
 			con = DbBridge.getCon();
 			ps = con.prepareStatement(sql);
 			ps.setInt(1, param.getI_board());
 			ps.setInt(2, param.getIdx());
-			
+
 			result = ps.executeUpdate();
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DbBridge.close(con, ps);
 		}
-		
+
 		return result;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

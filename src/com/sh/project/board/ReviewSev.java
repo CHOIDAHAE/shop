@@ -24,6 +24,7 @@ public class ReviewSev extends HttpServlet {
 		String search = request.getParameter("search");
 		
 		int page = 1;
+		
 		String strPage = request.getParameter("page");
 		if(strPage != null) {
 			page = Integer.parseInt(strPage);

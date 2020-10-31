@@ -29,6 +29,7 @@ public class CartSev extends HttpServlet {
 				response.sendRedirect("/login");
 				return;
 		}
+		
 		String num = request.getParameter("num");
 		int int_num = Utils.parseStringToInt(num, 0);
 		String price = request.getParameter("price");
@@ -36,26 +37,18 @@ public class CartSev extends HttpServlet {
 		String total = request.getParameter("total");
 		int int_total = Utils.parseStringToInt(total, 0);
 		int idx = loginUser.getIdx();
-		String name = request.getParameter("name");
 		
-		System.out.println(int_num);
-		System.out.println(int_price);
-		System.out.println(int_total);
-		System.out.println(name);
-
 		if (int_num != 0 && int_price != 0 && int_total != 0) {
 			CartVO param = new CartVO();
 			param.setNum(int_num);
-			param.setName(name);
 			param.setPrice(int_price);
 			param.setTotal(int_total);
 			param.setIdx(idx);
-
+		
 			ProductDAO.insertCart(param);
 			response.sendRedirect("/cart");
 			return;
 		}
-		
 		request.setAttribute("cart_list", ProductDAO.getCartList(idx));
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/board/cart.jsp");

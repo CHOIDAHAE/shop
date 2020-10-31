@@ -24,7 +24,7 @@
     	} else {
       %>
         <div class="welcome"><a href="login">로그인</a>이 필요합니다.</div>
-      <%		
+      <%
     	}
       %>
       <div class="logo_top">

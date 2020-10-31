@@ -153,7 +153,7 @@ public class ProductDAO {
 					con = DbBridge.getCon();
 					ps = con.prepareStatement(sql);
 					ps.setInt(1, param.getIdx());
-					ps.setString(2, param.getName());
+					ps.setString(2, "아우터");
 					ps.setInt(3, param.getNum());
 					ps.setInt(4, param.getPrice());
 					ps.setInt(5, param.getTotal());
@@ -179,6 +179,8 @@ public class ProductDAO {
 		try {
 				con = DbBridge.getCon();
 				ps = con.prepareStatement(sql);
+				ps.setInt(1, idx);
+				
 				rs = ps.executeQuery();
 
 				while(rs.next()) {
